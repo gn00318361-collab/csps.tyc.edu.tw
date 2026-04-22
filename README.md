@@ -38,6 +38,18 @@ tge-new-site/
 2. 直接以瀏覽器開啟 `index.html`。
 3. 若要發布到網路，可部署到 GitHub Pages、Netlify 或其他靜態網站服務。
 
+## 網址說明
+
+若此專案上傳到 GitHub，網址通常會長成下面這樣：
+
+- GitHub 專案網址：`https://github.com/gn00318361-collab/csps.tyc.edu.tw`
+- README 檔案網址：`https://github.com/gn00318361-collab/csps.tyc.edu.tw/blob/main/README.md`
+- GitHub Pages 網站網址：`https://gn00318361-collab.github.io/csps.tyc.edu.tw/`
+
+若目前只是在自己的電腦上開啟，首頁路徑通常會是：
+
+- 本機首頁網址：`file:///C:/Users/csps/Desktop/tge-new-site/index.html`
+
 ## 適用情境
 
 - 學校班級成果網站
