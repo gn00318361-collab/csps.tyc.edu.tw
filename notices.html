@@ -84,7 +84,7 @@
         <article class="feature-card">
           <span>C</span>
           <h3>時間註記</h3>
-          <p>以今天 2026 年 4 月 22 日來看，本年度國小資優鑑定報名與測驗皆已辦理完成；後續請以教育局與承辦學校公告的下一學年度資訊為準。</p>
+          <p id="notice-status">系統將依您目前瀏覽的日期，自動判斷本年度國小資優鑑定是否仍在報名或辦理期間。</p>
         </article>
       </div>
     </section>
@@ -96,5 +96,36 @@
       <p>以提醒時間與流程為主，協助家長快速掌握國小資優鑑定時程。</p>
     </div>
   </footer>
+  <script>
+    const noticeStatus = document.getElementById("notice-status");
+
+    if (noticeStatus) {
+      const now = new Date();
+      const formatDate = (date) =>
+        date.toLocaleDateString("zh-TW", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        });
+
+      const registrationStart = new Date("2026-01-06T09:00:00+08:00");
+      const registrationEnd = new Date("2026-01-12T16:00:00+08:00");
+      const finalAssessmentEnd = new Date("2026-04-19T23:59:59+08:00");
+
+      let message = "";
+
+      if (now < registrationStart) {
+        message = `依您目前瀏覽的時間 ${formatDate(now)} 判斷，本年度國小資優鑑定尚未開始報名；請留意後續公告。`;
+      } else if (now <= registrationEnd) {
+        message = `依您目前瀏覽的時間 ${formatDate(now)} 判斷，本年度國小資優鑑定目前正在報名期間，請於規定期限內完成線上報名。`;
+      } else if (now <= finalAssessmentEnd) {
+        message = `依您目前瀏覽的時間 ${formatDate(now)} 判斷，本年度國小資優鑑定已進入測驗與複選作業期間，請依教育局與承辦學校公告參加後續流程。`;
+      } else {
+        message = `依您目前瀏覽的時間 ${formatDate(now)} 判斷，本年度國小資優鑑定報名與測驗已辦理完成；後續相關資訊請以教育局與承辦學校公告之下一學年度內容為準。`;
+      }
+
+      noticeStatus.textContent = message;
+    }
+  </script>
 </body>
 </html>
