@@ -855,6 +855,69 @@ main {
   color: var(--muted);
 }
 
+.teacher-avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 260px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, #ffe6c7 0 52px, transparent 54px),
+    radial-gradient(circle at 50% 84%, rgba(45, 122, 123, 0.9) 0 82px, transparent 84px),
+    linear-gradient(145deg, rgba(255, 215, 168, 0.55), rgba(255, 253, 248, 0.92));
+}
+
+.teacher-avatar::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 78px;
+  top: 74px;
+  border-radius: 55px 55px 36px 36px;
+  background: #3d332c;
+  box-shadow:
+    -34px 30px 0 -12px #3d332c,
+    34px 30px 0 -12px #3d332c;
+}
+
+.teacher-avatar::after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: 96px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 42%, #2c2824 0 4px, transparent 5px),
+    radial-gradient(circle at 70% 42%, #2c2824 0 4px, transparent 5px),
+    radial-gradient(ellipse at 50% 68%, #d97b63 0 8px, transparent 9px),
+    #ffe6c7;
+  z-index: 1;
+}
+
+.teacher-avatar span {
+  position: relative;
+  z-index: 2;
+  margin-top: 120px;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #b65928;
+  font-size: 1.6rem;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(55, 45, 32, 0.12);
+}
+
+.teacher-avatar.avatar-a { background-color: #fff3df; }
+.teacher-avatar.avatar-b { background-color: #eaf7f1; }
+.teacher-avatar.avatar-c { background-color: #fff0ef; }
+.teacher-avatar.avatar-d { background-color: #f0f5ff; }
+.teacher-avatar.avatar-e { background-color: #fff7d9; }
+.teacher-avatar.avatar-f { background-color: #eef8e9; }
+
 .site-footer {
   display: flex;
   justify-content: space-between;
