@@ -2,6 +2,12 @@
 
 這是一個以靜態網頁製作的班級成果展示網站，主題為「青溪國小創造力資優班 114 學年度」。網站內容包含班級介紹、課程架構、活動剪影、公告資訊與聯絡頁面，適合作為學校班級成果展示與對外資訊發布使用。
 
+## 網站連結
+
+- 正式網站：<https://gn00318361-collab.github.io/csps.tyc.edu.tw/>
+- GitHub 專案：<https://github.com/gn00318361-collab/csps.tyc.edu.tw>
+- README 檔案：<https://github.com/gn00318361-collab/csps.tyc.edu.tw/blob/main/README.md>
+
 ## 專案特色
 
 - 使用 HTML 與 CSS 製作，結構簡單、容易維護
@@ -39,12 +45,6 @@ tge-new-site/
 3. 若要發布到網路，可部署到 GitHub Pages、Netlify 或其他靜態網站服務。
 
 ## 網址說明
-
-若此專案上傳到 GitHub，網址通常會長成下面這樣：
-
-- GitHub 專案網址：`https://github.com/gn00318361-collab/csps.tyc.edu.tw`
-- README 檔案網址：`https://github.com/gn00318361-collab/csps.tyc.edu.tw/blob/main/README.md`
-- GitHub Pages 網站網址：`https://gn00318361-collab.github.io/csps.tyc.edu.tw/`
 
 若目前只是在自己的電腦上開啟，首頁路徑通常會是：
 
