@@ -1280,7 +1280,45 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .grade-section .photo-grid:has(.photo-card:nth-child(3):last-child) {
+.grade-section .photo-grid:has(.photo-card:nth-child(3):last-child) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/* Final typography lock: keep every visible text in Microsoft JhengHei */
+body,
+button,
+input,
+textarea,
+select,
+.brand,
+.eyebrow,
+.site-nav a,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
+figcaption,
+li {
+  font-family: "Microsoft JhengHei", "PingFang TC", sans-serif !important;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.page-hero h1,
+.section-head h2,
+.grade-head h3,
+.content-card h2,
+.feature-card h3,
+.notice-card h2,
+.notice-card h3 {
+  font-family: "Microsoft JhengHei", "PingFang TC", sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
 }
