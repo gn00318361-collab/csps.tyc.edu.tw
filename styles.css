@@ -1261,6 +1261,17 @@ main {
   margin-top: 4px;
 }
 
+/* Keep the about intro cards filling one row on desktop */
+@media (min-width: 980px) {
+  .content-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .content-card.large {
+    grid-column: auto;
+  }
+}
+
 /* Fill activity photo sections more evenly */
 .grade-section .photo-grid {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1273,6 +1284,19 @@ main {
 .grade-section .photo-card img,
 .grade-section .photo-card.large img {
   height: 300px;
+}
+
+/* Let single-photo sections use the full available width */
+.section > .photo-grid:has(.photo-card:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.section > .photo-grid:has(.photo-card:only-child) .photo-card.large {
+  grid-column: auto;
+}
+
+.section > .photo-grid:has(.photo-card:only-child) .photo-card img {
+  height: min(520px, 58vw);
 }
 
 @media (min-width: 980px) {
