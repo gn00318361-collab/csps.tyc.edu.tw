@@ -3,441 +3,247 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>首頁提案總覽｜青溪國小創造力資優班</title>
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="青溪國小創造力資優班首頁三案提案總覽，方便校內直接比較正式感、現場感與成果展示感。">
+  <title>首頁版本選擇｜青溪國小創造力資優班</title>
+  <meta name="description" content="青溪國小創造力資優班首頁 A、B、C 三個版本選擇。">
   <style>
-    .proposal-shell,
-    .proposal-intro,
-    .proposal-previews,
-    .proposal-compare,
-    .proposal-recommend {
-      margin-bottom: 34px;
+    :root {
+      --bg: #f6efe4;
+      --ink: #18232d;
+      --muted: #66706e;
+      --paper: #fffaf1;
+      --shadow: 0 24px 70px rgba(24, 24, 24, 0.18);
     }
 
-    .proposal-shell {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: stretch;
+    * {
+      box-sizing: border-box;
     }
 
-    .proposal-main,
-    .proposal-side,
-    .preview-card,
-    .compare-card,
-    .recommend-card {
-      background: var(--paper);
-      border: 1px solid rgba(216, 205, 188, 0.65);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(213, 154, 61, 0.2), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(36, 70, 60, 0.15), transparent 26%),
+        linear-gradient(180deg, #fbf4e8, var(--bg));
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      line-height: 1.7;
     }
 
-    .proposal-main {
-      padding: 50px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .proposal-main h1 {
-      margin: 10px 0 14px;
-      font-family: "Georgia", "PMingLiU", serif;
-      font-size: clamp(2.2rem, 4.6vw, 4rem);
-      line-height: 1.12;
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
     }
 
-    .proposal-side {
-      padding: 26px;
-      background: linear-gradient(155deg, rgba(36, 69, 94, 0.96), rgba(54, 86, 60, 0.94));
-      color: #fff;
-    }
-
-    .proposal-side p {
-      color: rgba(255, 255, 255, 0.84);
-    }
-
-    .proposal-chip {
-      display: inline-flex;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      font-size: 0.88rem;
-    }
-
-    .proposal-points {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .proposal-points article {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .proposal-points strong {
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .proposal-intro {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .compare-card,
-    .recommend-card {
-      padding: 22px;
-    }
-
-    .compare-card strong,
-    .recommend-card strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--navy);
-    }
-
-    .proposal-previews {
-      display: grid;
-      gap: 22px;
-    }
-
-    .preview-card {
-      padding: 24px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .preview-head {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 18px;
+      gap: 24px;
+      margin-bottom: 28px;
     }
 
-    .preview-title {
-      display: grid;
-      gap: 6px;
-    }
-
-    .preview-letter {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(197, 138, 46, 0.16);
-      color: var(--berry);
-      font-family: "Georgia", "PMingLiU", serif;
-      font-size: 1.25rem;
-    }
-
-    .preview-title h2 {
-      margin: 0;
-      font-size: 1.55rem;
-    }
-
-    .preview-title p {
-      margin: 0;
-      color: var(--forest);
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #9c6d25;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       font-weight: 700;
     }
 
-    .preview-note {
+    h1 {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      line-height: 1.08;
+    }
+
+    .header p:last-child {
       max-width: 380px;
+      margin: 8px 0 0;
       color: var(--muted);
     }
 
-    .preview-frame {
-      overflow: hidden;
-      border-radius: 22px;
-      border: 1px solid rgba(216, 205, 188, 0.75);
-      background: #f3ede4;
-    }
-
-    .preview-frame iframe {
-      width: 100%;
-      height: 540px;
-      border: 0;
-      background: #fff;
-    }
-
-    .preview-meta {
+    .options {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 20px;
     }
 
-    .preview-meta div {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(36, 69, 94, 0.05);
+    .option-card {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+      border-radius: 34px;
+      background: #222;
+      box-shadow: var(--shadow);
+      isolation: isolate;
     }
 
-    .preview-meta strong {
+    .option-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      object-fit: cover;
       display: block;
-      margin-bottom: 6px;
-      color: var(--navy);
+      transform: scale(1.02);
+      transition: transform 0.35s ease;
     }
 
-    .preview-actions {
+    .option-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .option-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .option-card.a::after {
+      background: linear-gradient(180deg, rgba(255, 250, 241, 0.08), rgba(20, 36, 55, 0.86));
+    }
+
+    .option-card.b::after {
+      background: linear-gradient(180deg, rgba(255, 202, 129, 0.1), rgba(122, 62, 28, 0.74));
+    }
+
+    .option-card.c::after {
+      background:
+        linear-gradient(180deg, rgba(10, 12, 18, 0.12), rgba(5, 8, 12, 0.88)),
+        linear-gradient(130deg, rgba(242, 110, 141, 0.22), rgba(105, 210, 208, 0.16));
+    }
+
+    .option-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      color: white;
     }
 
-    .preview-link {
+    .letter {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 11px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--navy);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      backdrop-filter: blur(8px);
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 1.6rem;
       font-weight: 700;
     }
 
-    .preview-link.primary {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: #fff;
+    .option-content h2 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.08;
     }
 
-    .proposal-compare {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+    .option-content p {
+      margin: 0 0 22px;
+      color: rgba(255, 255, 255, 0.88);
     }
 
-    .proposal-recommend {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-width: 150px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: white;
+      color: #17202a;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     @media (max-width: 960px) {
-      .proposal-shell,
-      .proposal-intro,
-      .preview-meta,
-      .proposal-compare,
-      .proposal-recommend {
+      .header,
+      .options {
         grid-template-columns: 1fr;
       }
 
-      .preview-head {
-        flex-direction: column;
+      .header {
+        display: block;
       }
 
-      .preview-frame iframe {
-        height: 430px;
+      .option-card,
+      .option-card img {
+        min-height: 480px;
       }
     }
   </style>
 </head>
-<body class="visual-b">
-  <header class="site-header">
-    <div class="brand-block">
-      <p class="eyebrow">Qing Xi Elementary School</p>
-      <a class="brand" href="index.html">青溪國小創造力資優班</a>
-    </div>
-    <nav class="site-nav">
-      <a class="active" href="index.html">首頁提案總覽</a>
-      <a href="index-visual-a.html">版本 A</a>
-      <a href="index-visual-b.html">版本 B</a>
-      <a href="index-visual-c.html">版本 C</a>
-      <a href="highlights.html">活動剪影</a>
-      <a href="notices.html">公告資訊</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="proposal-shell">
-      <div class="proposal-main">
-        <p class="eyebrow">Homepage Proposal</p>
-        <h1>首頁三案總覽</h1>
-        <p class="hero-text">
-          本頁直接整合三個首頁版本，讓主任不需要分別開三個檔案，就可以在同一頁比較各版本的視覺語氣、
-          適用情境與推薦方向。三案皆使用相同網站內容，差別在於首頁第一眼傳達的重點不同。
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#version-a">查看版本 A</a>
-          <a class="button secondary" href="#version-b">查看版本 B</a>
-          <a class="button secondary" href="#version-c">查看版本 C</a>
-        </div>
+<body>
+  <main class="page">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Homepage Options</p>
+        <h1>首頁版本選擇</h1>
       </div>
-      <aside class="proposal-side">
-        <span class="proposal-chip">提案閱讀方式</span>
-        <h2>先看預覽，再看建議</h2>
-        <p>每個版本下方都已整理視覺定位、適用對象與建議用途，方便直接做決策。</p>
-        <div class="proposal-points">
-          <article>
-            <strong>版本 A</strong>
-            正式穩重，適合偏校務與品牌形象。
-          </article>
-          <article>
-            <strong>版本 B</strong>
-            現場感最強，最適合家長閱讀與成果展示。
-          </article>
-          <article>
-            <strong>版本 C</strong>
-            設計感最高，適合成果展與主題宣傳。
-          </article>
+      <p>請點選 A、B、C 其中一個版本查看完整首頁。</p>
+    </header>
+
+    <section class="options">
+      <a class="option-card a" href="index-visual-a.html">
+        <img src="assets/img-grade6.jpg" alt="版本 A 正式校務型">
+        <div class="option-content">
+          <span class="letter">A</span>
+          <div>
+            <h2>正式校務型</h2>
+            <p>穩重、端正，適合學校官網形象。</p>
+            <span class="button">查看 A</span>
+          </div>
         </div>
-      </aside>
+      </a>
+
+      <a class="option-card b" href="index-visual-b.html">
+        <img src="assets/img-people-making.jpg" alt="版本 B 溫暖課堂型">
+        <div class="option-content">
+          <span class="letter">B</span>
+          <div>
+            <h2>溫暖課堂型</h2>
+            <p>親切、有現場感，適合家長瀏覽。</p>
+            <span class="button">查看 B</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="option-card c" href="index-visual-c.html">
+        <img src="assets/img-mentor.jpg" alt="版本 C 成果展海報型">
+        <div class="option-content">
+          <span class="letter">C</span>
+          <div>
+            <h2>成果展海報型</h2>
+            <p>亮眼、有主題感，適合成果展宣傳。</p>
+            <span class="button">查看 C</span>
+          </div>
+        </div>
+      </a>
     </section>
 
-    <section class="proposal-intro">
-      <article class="compare-card">
-        <strong>提案目的</strong>
-        讓首頁不只是好看，而是能清楚決定網站第一眼要傳達的氣質與定位。
-      </article>
-      <article class="compare-card">
-        <strong>比較方式</strong>
-        同頁直接看三案縮覽與分析，不需要來回切換頁面。
-      </article>
-      <article class="compare-card">
-        <strong>使用建議</strong>
-        先看各版預覽，再用頁尾推薦順序做最後選擇。
-      </article>
-    </section>
-
-    <section class="proposal-previews">
-      <article class="preview-card" id="version-a">
-        <div class="preview-head">
-          <div class="preview-title">
-            <span class="preview-letter">A</span>
-            <h2>穩重正式版</h2>
-            <p>偏校務形象與正式介紹</p>
-          </div>
-          <div class="preview-note">
-            版面語氣最穩定，最接近學校官網首頁的正式感，適合需要強調辦學理念與班級特色的場合。
-          </div>
-        </div>
-        <div class="preview-frame">
-          <iframe src="index-visual-a.html" title="版本 A 預覽" loading="lazy"></iframe>
-        </div>
-        <div class="preview-meta">
-          <div>
-            <strong>優點</strong>
-            正式、穩定、容易被校內接受。
-          </div>
-          <div>
-            <strong>適合對象</strong>
-            主任、行政端、校務說明使用。
-          </div>
-          <div>
-            <strong>提醒</strong>
-            第一眼吸睛度較保守。
-          </div>
-        </div>
-        <div class="preview-actions">
-          <a class="preview-link primary" href="index-visual-a.html">單獨查看版本 A</a>
-        </div>
-      </article>
-
-      <article class="preview-card" id="version-b">
-        <div class="preview-head">
-          <div class="preview-title">
-            <span class="preview-letter">B</span>
-            <h2>現場感主視覺版</h2>
-            <p>偏家長溝通與課堂展示</p>
-          </div>
-          <div class="preview-note">
-            用真實課堂照片直接帶出班級氛圍，最容易讓家長快速理解孩子在創造力資優班的學習樣貌。
-          </div>
-        </div>
-        <div class="preview-frame">
-          <iframe src="index-visual-b.html" title="版本 B 預覽" loading="lazy"></iframe>
-        </div>
-        <div class="preview-meta">
-          <div>
-            <strong>優點</strong>
-            親切直觀、現場感最強、整體最平衡。
-          </div>
-          <div>
-            <strong>適合對象</strong>
-            家長、一般訪客、招生與成果網站。
-          </div>
-          <div>
-            <strong>提醒</strong>
-            正式度略低於 A，但整體接受度通常最高。
-          </div>
-        </div>
-        <div class="preview-actions">
-          <a class="preview-link primary" href="index-visual-b.html">單獨查看版本 B</a>
-        </div>
-      </article>
-
-      <article class="preview-card" id="version-c">
-        <div class="preview-head">
-          <div class="preview-title">
-            <span class="preview-letter">C</span>
-            <h2>海報式展示版</h2>
-            <p>偏成果展與宣傳感</p>
-          </div>
-          <div class="preview-note">
-            版面節奏最鮮明，設計感與展示感最高，適合成果展、主題活動或招生宣傳等情境。
-          </div>
-        </div>
-        <div class="preview-frame">
-          <iframe src="index-visual-c.html" title="版本 C 預覽" loading="lazy"></iframe>
-        </div>
-        <div class="preview-meta">
-          <div>
-            <strong>優點</strong>
-            識別度高、提案感強、第一眼印象鮮明。
-          </div>
-          <div>
-            <strong>適合對象</strong>
-            成果展、主題活動、短期宣傳頁。
-          </div>
-          <div>
-            <strong>提醒</strong>
-            若作為長期首頁，可能需要再收斂一點。
-          </div>
-        </div>
-        <div class="preview-actions">
-          <a class="preview-link primary" href="index-visual-c.html">單獨查看版本 C</a>
-        </div>
-      </article>
-    </section>
-
-    <section class="proposal-compare">
-      <article class="compare-card">
-        <strong>正式感最高</strong>
-        版本 A 最接近學校官網首頁的穩定調性，若主任偏好保守、端正、長期使用，A 會是最安全的選擇。
-      </article>
-      <article class="compare-card">
-        <strong>整體最平衡</strong>
-        版本 B 在正式度、親切感與視覺吸引力之間最平均，最適合拿來作為實際上線首頁。
-      </article>
-      <article class="compare-card">
-        <strong>展示感最強</strong>
-        版本 C 最有提案與活動主視覺感，若要搭配成果展或招生文宣，辨識度會最高。
-      </article>
-    </section>
-
-    <section class="proposal-recommend">
-      <article class="recommend-card">
-        <strong>首選建議：版本 B</strong>
-        若以目前網站用途來看，版本 B 最能兼顧正式感、家長可讀性與真實學習現場的呈現。
-      </article>
-      <article class="recommend-card">
-        <strong>次選建議：版本 A</strong>
-        若主任希望網站更接近正式校務首頁氣質，版本 A 會是最穩定的選項。
-      </article>
-      <article class="recommend-card">
-        <strong>特色提案：版本 C</strong>
-        若未來需要成果展主題頁或招生形象頁，可保留版本 C 作為延伸應用。
-      </article>
-    </section>
+    <p class="footer">青溪國小創造力資優班首頁提案。確認版本後，可再將選定版本設為正式首頁。</p>
   </main>
-
-  <footer class="site-footer">
-    <div class="footer-content">
-      <p>首頁提案總覽頁面，可於同一頁直接比較三個版本，確認後再選定正式首頁。</p>
-    </div>
-  </footer>
 </body>
 </html>

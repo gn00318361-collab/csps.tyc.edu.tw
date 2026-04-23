@@ -3,152 +3,353 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>青溪國小創造力資優班</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>首頁提案 B｜青溪國小創造力資優班</title>
+  <style>
+    :root {
+      --cream: #fff7ec;
+      --peach: #ffd7a8;
+      --melon: #ef8f57;
+      --teal: #2d7a7b;
+      --leaf: #6d915e;
+      --ink: #24333d;
+      --muted: #5e6a6d;
+      --paper: #fffdf8;
+      --shadow: 0 20px 40px rgba(55, 45, 32, 0.12);
+      --radius: 30px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255, 215, 168, 0.6), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(45, 122, 123, 0.12), transparent 24%),
+        linear-gradient(180deg, #fff6e8, #fdf0df 52%, #fffaf2);
+      color: var(--ink);
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1200px, calc(100% - 30px)); margin: 0 auto; }
+
+    .site-header, .site-footer { width: min(1200px, calc(100% - 30px)); margin: 0 auto; }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 0 18px;
+    }
+
+    .brand-block { display: grid; gap: 4px; }
+    .eyebrow {
+      margin: 0;
+      font-size: 0.84rem;
+      letter-spacing: 0.16em;
+      color: var(--melon);
+      text-transform: uppercase;
+    }
+    .brand {
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .site-nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+    .site-nav a.active,
+    .site-nav a:hover {
+      background: rgba(239, 143, 87, 0.12);
+      color: #af5a26;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 42px;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.34), transparent 26%),
+        linear-gradient(140deg, #f08e59, #f5b35d 52%, #ffd88f);
+      color: #fff;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before,
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-copy::before {
+      width: 180px;
+      height: 180px;
+      top: -50px;
+      right: -40px;
+    }
+
+    .hero-copy::after {
+      width: 120px;
+      height: 120px;
+      bottom: -30px;
+      left: -10px;
+    }
+
+    .hero-copy .eyebrow { color: rgba(255,255,255,0.82); }
+    .hero-copy h1 {
+      margin: 10px 0 14px;
+      font-size: clamp(2.4rem, 4.7vw, 4.6rem);
+      line-height: 1.04;
+      max-width: 9ch;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 620px;
+      color: rgba(255,255,255,0.92);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 164px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .button.primary { background: #fff; color: #b65928; }
+    .button.secondary { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+
+    .hero-collage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-collage figure,
+    .story-card,
+    .snapshot-card,
+    .quote-card {
+      margin: 0;
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-collage img {
+      width: 100%;
+      height: 214px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-collage figcaption {
+      padding: 12px 16px 16px;
+      color: var(--muted);
+      background: #fffdf8;
+    }
+
+    .section { margin-bottom: 28px; }
+    .section-head { margin-bottom: 18px; }
+    .section-head h2 {
+      margin: 10px 0 0;
+      font-size: clamp(1.9rem, 3vw, 3.1rem);
+      line-height: 1.12;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .story-card {
+      padding: 22px;
+      background: rgba(255, 253, 248, 0.9);
+    }
+
+    .story-card h3,
+    .snapshot-card h3 {
+      margin: 0 0 8px;
+      color: var(--teal);
+    }
+    .story-card p,
+    .snapshot-card p,
+    .quote-card p { margin: 0; color: var(--muted); }
+
+    .snapshot-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .snapshot-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .snapshot-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .snapshot-card .copy {
+      padding: 20px 22px 24px;
+    }
+
+    .quote-card {
+      padding: 28px;
+      background: linear-gradient(160deg, #2d7a7b, #5b9b84);
+      color: #fff;
+    }
+
+    .quote-card p {
+      color: rgba(255,255,255,0.92);
+      font-size: 1.04rem;
+    }
+
+    .quote-card strong {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .site-footer {
+      padding: 0 0 34px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 920px) {
+      .hero, .story-grid, .snapshot-layout { grid-template-columns: 1fr; }
+      .hero-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-copy { padding: 32px 26px; }
+    }
+
+    @media (max-width: 620px) {
+      .hero-collage { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="visual-b">
+<body>
   <header class="site-header">
     <div class="brand-block">
-      <p class="eyebrow">Qing Xi Elementary School</p>
+      <p class="eyebrow">Proposal B</p>
       <a class="brand" href="index-visual-b.html">青溪國小創造力資優班</a>
     </div>
     <nav class="site-nav">
-      <a class="active" href="index-visual-b.html">首頁</a>
-      <a href="about.html">關於我們</a>
-      <a href="curriculum.html">課程與學習</a>
-      <a href="highlights.html">活動與成果</a>
-      <a href="notices.html">公告與資訊</a>
-      <a href="contact.html">聯絡我們</a>
+      <a href="index.html">提案總覽</a>
+      <a href="index-visual-a.html">版本 A</a>
+      <a class="active" href="index-visual-b.html">版本 B</a>
+      <a href="index-visual-c.html">版本 C</a>
+      <a href="highlights.html">活動剪影</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero hero-alt hero-b">
-      <div class="hero-b-image">
-        <img src="assets/img-people-making.jpg" alt="青溪國小創造力資優班課堂紀錄">
-      </div>
-      <div class="hero-b-overlay">
-        <p class="eyebrow">Version B</p>
-        <p class="hero-kicker">現場感主視覺</p>
-        <h1>在真實課堂裡，讓孩子把觀察、提問與創作連成自己的學習路徑。</h1>
-        <p class="hero-text">
-          從技能課、議題探究到畢業成果展，青溪創造力資優班陪伴學生在不同年段持續累積表達、創作與解決問題的能力。
-        </p>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">現場感主視覺版</p>
+        <h1>把教室裡真正發生的學習 放在首頁第一眼</h1>
+        <p>此版本不先講制度，而是先讓家長感受到孩子在課堂中的投入、合作與創作氛圍。整體色調較溫暖、有親近感，最適合作為成果展示與家長溝通首頁。</p>
         <div class="hero-actions">
-          <a class="button primary" href="curriculum.html">查看課程架構</a>
-          <a class="button secondary" href="highlights.html">瀏覽成果照片</a>
+          <a class="button primary" href="highlights.html">看學習剪影</a>
+          <a class="button secondary" href="about.html">看班級介紹</a>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <p class="eyebrow">班級特色</p>
-        <h2>以多元課程與探究實作，陪孩子把創意真正做出來。</h2>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <span>01</span>
-          <h3>跨域學習</h3>
-          <p>結合藝術、人文、科技與生活議題，發展更寬廣的學習視野。</p>
-        </article>
-        <article class="feature-card">
-          <span>02</span>
-          <h3>主題探究</h3>
-          <p>透過提問、蒐集資料與討論分析，培養深入思考與研究能力。</p>
-        </article>
-        <article class="feature-card">
-          <span>03</span>
-          <h3>創作實踐</h3>
-          <p>將想法轉化為作品、方案與發表內容，提升實作與表達能力。</p>
-        </article>
-        <article class="feature-card">
-          <span>04</span>
-          <h3>成果發表</h3>
-          <p>從歷程整理到公開展示，幫助學生建立自信與完整表達能力。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section soft">
-      <div class="section-head">
-        <p class="eyebrow">課程主軸</p>
-        <h2>在人文、美感、科技與探究之間，建立學生的創造力基礎。</h2>
-      </div>
-      <div class="track-grid">
-        <article class="track-card warm">
-          <h3>人文創藝</h3>
-          <p>結合文化觀察、美感表達與創作實踐，培養學生的藝術感受與作品表現力。</p>
-        </article>
-        <article class="track-card deep">
-          <h3>科學數位</h3>
-          <p>運用科技工具、數位製作與邏輯思考，發展實驗、創作與解決問題的能力。</p>
-        </article>
-        <article class="track-card earth">
-          <h3>生活智慧</h3>
-          <p>從真實情境出發，學習觀察問題、規劃行動，建立生活中的創意與實用能力。</p>
-        </article>
-        <article class="track-card bright">
-          <h3>主題探究與獨立研究</h3>
-          <p>從問題形成到成果發表，培養學生系統思考、研究歷程與公開表達能力。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section split">
-      <div>
-        <p class="eyebrow">最新資訊</p>
-        <h2>整合公告、活動與學習成果，讓重要資訊一眼就能找到。</h2>
-        <p class="body-text">
-          網站將陸續更新本學年度課程活動、成果發表、學生作品與家長通知，
-          讓班級資訊更清楚、查找更方便。
-        </p>
-      </div>
-      <div class="notice-stack">
-        <article class="notice-card">
-          <p class="notice-date">113學年度課程架構</p>
-          <h3>已補上技能學習區、議題課程與畢業專題主軸</h3>
-          <p>課程頁已更新五大技能學習區、五項 SDGs 議題課程，以及六年級畢業專題創作的整體學習架構。</p>
-        </article>
-        <article class="notice-card">
-          <p class="notice-date">公告窗口</p>
-          <h3>特殊教育科蔡老師 03-3322101 分機 7581</h3>
-          <p>家長若需進一步確認，可參考公告頁整理的承辦學校與資優教育資源中心聯絡方式。</p>
-        </article>
+      <div class="hero-collage">
+        <figure>
+          <img src="assets/img-people-making.jpg" alt="學生創作課堂">
+          <figcaption>孩子在實作中討論、觀察與修正，學習節奏自然被看見。</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img-animation.jpg" alt="動畫製作課程">
+          <figcaption>從媒材到動畫，課程現場感很強。</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img-painting-dolls.jpg" alt="人偶彩繪課程">
+          <figcaption>成果不是終點，過程本身就是亮點。</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img-structure.jpg" alt="結構組裝課程">
+          <figcaption>每一次操作都是理解、合作與表達的練習。</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section">
       <div class="section-head">
-        <p class="eyebrow">114學年度精選</p>
-        <h2>從三年級到六年級，看見孩子在不同階段的創造力學習現場。</h2>
+        <p class="eyebrow">首頁語氣</p>
+        <h2>這一版像是在帶家長走進教室，而不是先看校務簡介。</h2>
       </div>
-      <div class="photo-grid">
-        <figure class="photo-card large">
-          <img src="assets/img-people-making.jpg" alt="學生進行創作與討論的課堂紀錄">
-          <figcaption>五年級技能課程中，學生透過討論與實作把想法轉化成作品。</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="assets/img-structure.jpg" alt="學生進行結構組裝課程的學習紀錄">
-          <figcaption>三年級結構組裝課程，從觀察到動手搭建，培養問題解決能力。</figcaption>
-        </figure>
-        <figure class="photo-card">
-          <img src="assets/img-grade6.jpg" alt="六年級學生進行課程創作的學習紀錄">
-          <figcaption>六年級課程成果與發表歷程，展現學生更成熟的創意與表達能力。</figcaption>
-        </figure>
+      <div class="story-grid">
+        <article class="story-card">
+          <h3>第一眼先有溫度</h3>
+          <p>照片比例放大，讓網站一打開就先感受到課堂現場與孩子投入的樣子。</p>
+        </article>
+        <article class="story-card">
+          <h3>閱讀門檻更低</h3>
+          <p>不需要先理解制度或課程架構，家長可以先從畫面感認識這個班級。</p>
+        </article>
+        <article class="story-card">
+          <h3>適合成果與招生</h3>
+          <p>若首頁主要任務是介紹班級魅力與學習成果，這一版最容易取得共鳴。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="snapshot-layout">
+        <article class="snapshot-card">
+          <img src="assets/img-structure.jpg" alt="結構組裝學習現場">
+          <div class="copy">
+            <p class="eyebrow">中年級起點</p>
+            <h3>從動手做開始建立觀察與表達能力</h3>
+            <p>這一版特別適合把孩子學習的「過程感」放大，讓家長看到的不只是結果，而是實際參與的樣子。</p>
+          </div>
+        </article>
+        <article class="quote-card">
+          <strong>版本 B 的角色</strong>
+          <p>如果網站希望兼顧正式度與親切度，版本 B 會是最平衡的選擇。它不像校務首頁那麼嚴肅，也不像海報頁那麼強烈，而是最容易被多數家長接受的「真實課堂版」。</p>
+        </article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div>
-      <p class="footer-title">青溪國小創造力資優班</p>
-      <p>以關懷、探索、想像、創新為核心，陪伴孩子展開多元而深刻的學習。</p>
-    </div>
-    <div>
-      <p class="footer-title">聯絡資訊</p>
-      <p>03-3347883 轉 613 / 614 / 615</p>
-    </div>
+    溫暖課堂型首頁提案 B，適合家長閱讀、成果展示與招生介紹。
   </footer>
 </body>
 </html>
