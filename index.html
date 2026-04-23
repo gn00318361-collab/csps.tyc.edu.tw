@@ -212,7 +212,7 @@
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 18px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .snapshot-card {
@@ -232,20 +232,35 @@
     }
 
     .quote-card {
-      padding: 0;
+      padding: 28px;
       background: linear-gradient(160deg, #2d7a7b, #5b9b84);
       color: #fff;
-      align-self: start;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .quote-card .quote-copy {
-      padding: 28px;
+    .quote-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .quote-points span {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.92);
     }
 
     .quote-card img {
       display: block;
       width: 100%;
-      height: 250px;
+      height: 220px;
+      margin-top: 18px;
+      border-radius: 22px;
       object-fit: cover;
     }
 
@@ -355,11 +370,15 @@
           </div>
         </article>
         <article class="quote-card">
-          <div class="quote-copy">
+          <div>
             <strong>高年級學習</strong>
             <p>高年級課程逐步銜接主題探究、專題創作與成果發表，讓學生在合作、研究與實作歷程中，練習形成自己的觀點並清楚表達。</p>
           </div>
-          <img src="assets/img-grade6.jpg" alt="高年級課程學習紀錄" loading="lazy">
+          <div class="quote-points">
+            <span>主題探究：從問題形成到資料整理，建立研究歷程。</span>
+            <span>成果發表：透過作品展示與口語表達，看見學習累積。</span>
+          </div>
+          <img src="assets/img-grad-project.jpg" alt="高年級專題學習紀錄" loading="lazy">
         </article>
       </div>
     </section>
