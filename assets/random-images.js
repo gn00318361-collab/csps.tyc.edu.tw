@@ -42,7 +42,16 @@
 
     if (!pool || pool.length === 0) return;
 
-    const selected = pool[Math.floor(Math.random() * pool.length)];
+    const storageKey = `random-image-${groupName}`;
+    const lastIndex = Number.parseInt(sessionStorage.getItem(storageKey) ?? "-1", 10);
+    let nextIndex = Math.floor(Math.random() * pool.length);
+
+    if (pool.length > 1 && Number.isInteger(lastIndex) && nextIndex === lastIndex) {
+      nextIndex = (nextIndex + 1) % pool.length;
+    }
+
+    sessionStorage.setItem(storageKey, String(nextIndex));
+    const selected = pool[nextIndex];
     img.src = selected.src;
     img.alt = selected.alt;
 
