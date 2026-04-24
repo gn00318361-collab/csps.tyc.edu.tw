@@ -675,7 +675,7 @@ main {
 }
 
 .diagram-focus {
-  max-width: 980px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -917,6 +917,103 @@ main {
 .teacher-avatar.avatar-d { background-color: #f0f5ff; }
 .teacher-avatar.avatar-e { background-color: #fff7d9; }
 .teacher-avatar.avatar-f { background-color: #eef8e9; }
+
+/* Refined teacher avatars: clean illustrated name badges instead of real photos */
+.teacher-avatar {
+  height: 240px;
+  background:
+    radial-gradient(circle at 24% 20%, rgba(255, 255, 255, 0.74), transparent 18%),
+    radial-gradient(circle at 80% 18%, rgba(255, 215, 168, 0.38), transparent 22%),
+    linear-gradient(145deg, var(--avatar-bg, #fff3df), #fffdf8);
+}
+
+.teacher-avatar::before {
+  content: "";
+  position: absolute;
+  width: 126px;
+  height: 126px;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 42% 42% 48% 48%;
+  background:
+    radial-gradient(circle at 34% 44%, #2f2a26 0 4px, transparent 5px),
+    radial-gradient(circle at 66% 44%, #2f2a26 0 4px, transparent 5px),
+    radial-gradient(ellipse at 50% 66%, #db8068 0 8px, transparent 9px),
+    linear-gradient(180deg, #ffe6c7 0 64%, #ffd7b8 100%);
+  box-shadow:
+    inset 0 18px 0 var(--hair, #3f342e),
+    0 14px 28px rgba(55, 45, 32, 0.12);
+  z-index: 1;
+}
+
+.teacher-avatar::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 74px;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  border-radius: 52px 52px 26px 26px;
+  background: linear-gradient(145deg, var(--shirt, #2d7a7b), rgba(45, 122, 123, 0.72));
+}
+
+.teacher-avatar span {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  z-index: 3;
+  margin: 0;
+  width: 58px;
+  height: 58px;
+  border: 3px solid rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--avatar-ink, #b65928);
+  font-size: 1.45rem;
+}
+
+.teacher-avatar.avatar-a {
+  --avatar-bg: #fff3df;
+  --avatar-ink: #b65928;
+  --shirt: #ef8f57;
+  --hair: #3d332c;
+}
+
+.teacher-avatar.avatar-b {
+  --avatar-bg: #eaf7f1;
+  --avatar-ink: #2d7a7b;
+  --shirt: #2d7a7b;
+  --hair: #4a342a;
+}
+
+.teacher-avatar.avatar-c {
+  --avatar-bg: #fff0ef;
+  --avatar-ink: #b85e68;
+  --shirt: #b85e68;
+  --hair: #2f2a26;
+}
+
+.teacher-avatar.avatar-d {
+  --avatar-bg: #eef4ff;
+  --avatar-ink: #4f6fa3;
+  --shirt: #4f6fa3;
+  --hair: #46352d;
+}
+
+.teacher-avatar.avatar-e {
+  --avatar-bg: #fff7d9;
+  --avatar-ink: #9c7521;
+  --shirt: #d59a3d;
+  --hair: #3d332c;
+}
+
+.teacher-avatar.avatar-f {
+  --avatar-bg: #eef8e9;
+  --avatar-ink: #5a8a48;
+  --shirt: #6d915e;
+  --hair: #3a312b;
+}
 
 .site-footer {
   display: flex;
@@ -1297,6 +1394,15 @@ main {
   border-radius: 22px;
 }
 
+.photo-grid-single .diagram-card {
+  width: 100%;
+}
+
+.photo-grid-single .diagram-image {
+  display: block;
+  width: 100%;
+}
+
 .notice-date {
   color: #b65928;
   font-weight: 800;
@@ -1347,6 +1453,10 @@ main {
 .grade-section .photo-card img,
 .grade-section .photo-card.large img {
   height: 300px;
+}
+
+.media-card-image {
+  object-position: center 22%;
 }
 
 /* Let single-photo sections use the full available width */
