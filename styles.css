@@ -1386,6 +1386,37 @@ main {
   color: var(--muted);
 }
 
+
+.photo-grid.mentor-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.mentor-side {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.mentor-side img {
+  height: 250px;
+}
+
+.mentor-side-image {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #f7f1e7;
+}
+
+@media (max-width: 900px) {
+  .photo-grid.mentor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mentor-side img {
+    height: 280px;
+  }
+}
+
 .diagram-card {
   padding: 12px;
 }
