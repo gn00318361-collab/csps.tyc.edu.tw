@@ -5,6 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>組織圖｜青溪國小創造力資優班</title>
   <link rel="stylesheet" href="styles.css?v=20260427-orgfix">
+  <style>
+    .org-chart-section {
+      margin-bottom: 34px;
+    }
+
+    .org-chart {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+    }
+
+    .org-level {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .org-node {
+      display: block;
+      width: min(100%, 280px);
+      padding: 20px 24px;
+      text-align: center;
+      background: rgba(255, 253, 248, 0.96);
+      border: 1px solid rgba(239, 143, 87, 0.22);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(55, 45, 32, 0.12);
+    }
+
+    .org-node h3 {
+      margin: 0;
+      color: #2f5f45;
+      font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .org-connector.vertical {
+      width: 2px;
+      height: 28px;
+      background: linear-gradient(180deg, rgba(239, 143, 87, 0.3), rgba(45, 122, 123, 0.55));
+      border-radius: 999px;
+    }
+
+    .org-branch-connectors {
+      position: relative;
+      width: min(100%, 860px);
+      height: 34px;
+    }
+
+    .org-branch-connectors::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 16px;
+      background: rgba(45, 122, 123, 0.55);
+      transform: translateX(-50%);
+    }
+
+    .org-branch-connectors span:nth-child(1) {
+      position: absolute;
+      top: 16px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: rgba(45, 122, 123, 0.55);
+      border-radius: 999px;
+    }
+
+    .org-branch-connectors span:nth-child(2),
+    .org-branch-connectors span:nth-child(3),
+    .org-branch-connectors span:nth-child(4) {
+      position: absolute;
+      top: 16px;
+      width: 2px;
+      height: 18px;
+      background: rgba(45, 122, 123, 0.55);
+      border-radius: 999px;
+    }
+
+    .org-branch-connectors span:nth-child(2) {
+      left: 10%;
+    }
+
+    .org-branch-connectors span:nth-child(3) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .org-branch-connectors span:nth-child(4) {
+      right: 10%;
+    }
+
+    .org-branch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      width: min(100%, 960px);
+    }
+
+    @media (max-width: 760px) {
+      .org-branch-connectors {
+        display: none;
+      }
+
+      .org-branch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .org-node {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
