@@ -1439,6 +1439,222 @@ main {
   font-weight: 800;
 }
 
+.curriculum-table-wrap {
+  margin-top: 22px;
+  overflow-x: auto;
+}
+
+.curriculum-card {
+  margin-top: 24px;
+}
+
+.section-head-centered {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.section-head-centered h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.curriculum-map-layout {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.map-stair {
+  display: grid;
+  grid-template-rows: 78px repeat(4, 92px);
+  align-items: center;
+  justify-items: end;
+  gap: 0;
+  margin-top: 88px;
+}
+
+.map-step-spacer {
+  width: 100%;
+}
+
+.map-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  color: #fff;
+  background: #787878;
+  font-weight: 800;
+  font-size: 1.02rem;
+  box-shadow: inset 0 -10px 0 rgba(255, 255, 255, 0.14);
+}
+
+.step-6 { width: 52px; }
+.step-5 { width: 72px; }
+.step-4 { width: 92px; }
+.step-3 { width: 112px; }
+
+.map-band {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 352px;
+  padding: 10px 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffd84d, #ffe98b);
+  color: #7a6416;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.map-band-top {
+  writing-mode: horizontal-tb;
+  min-height: 44px;
+  width: fit-content;
+  padding: 10px 18px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.between-card-badge {
+  display: flex;
+  justify-content: center;
+  margin: -4px 0 14px;
+}
+
+.map-table-board {
+  background: rgba(255, 253, 248, 0.72);
+  border: 1px solid rgba(226, 214, 198, 0.92);
+  border-radius: 18px;
+  padding: 12px 12px 10px;
+}
+
+.scan-board {
+  display: grid;
+  grid-template-columns: 0.84fr 1.36fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.scan-grid {
+  display: grid;
+  border: 1px solid rgba(178, 171, 160, 0.82);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.scan-column {
+  min-width: 0;
+}
+
+.special-scan-grid {
+  grid-template-columns: 76px 1fr 1fr;
+  grid-template-rows: 78px repeat(4, 92px);
+}
+
+.subject-scan-grid {
+  grid-template-columns: 76px 1.18fr 1.14fr 1fr 1fr;
+  grid-template-rows: 78px 184px 184px;
+}
+
+.scan-cell {
+  padding: 12px 10px;
+  border-right: 1px solid rgba(178, 171, 160, 0.82);
+  border-bottom: 1px solid rgba(178, 171, 160, 0.82);
+  color: var(--ink);
+  font-size: 1.28rem;
+  line-height: 1.45;
+  background: rgba(255, 255, 255, 0.42);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-cell.head {
+  background: rgba(248, 215, 181, 0.2);
+  font-size: 1.72rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.scan-cell.grade-cell,
+.scan-cell.level-cell {
+  background: rgba(45, 122, 123, 0.04);
+  font-size: 1.62rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.middle-level-cell {
+  line-height: 1.35;
+}
+
+.tall-row-cell {
+  height: 184px;
+}
+
+.scan-cell.blank-cell {
+  background: rgba(255, 249, 242, 0.28);
+}
+
+.scan-section-title {
+  margin: 0 0 8px;
+  padding: 0 0 4px;
+  color: #2d7a7b;
+  font-size: 1.72rem;
+  font-weight: 800;
+  text-align: center;
+  background: transparent;
+}
+
+.scan-section-title-left {
+  padding-left: 0;
+}
+
+.special-scan-grid > .scan-cell:nth-child(3n),
+.subject-scan-grid > .scan-cell:nth-child(5n) {
+  border-right: 0;
+}
+
+.special-scan-grid > .scan-cell:nth-last-child(-n + 3),
+.subject-scan-grid > .scan-cell:nth-last-child(-n + 5) {
+  border-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .curriculum-map-layout,
+  .scan-board {
+    grid-template-columns: 1fr;
+  }
+
+  .map-stair {
+    justify-items: start;
+    grid-template-rows: repeat(4, auto);
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .map-band {
+    writing-mode: horizontal-tb;
+    min-height: 44px;
+    align-self: auto;
+  }
+
+  .scan-grid > .scan-cell {
+    border-right: 0;
+  }
+
+  .scan-grid > .scan-cell:last-child {
+    border-bottom: 0;
+  }
+}
+
 .notice-board .notice-card:first-child,
 .contact-grid .content-card.large {
   background:
