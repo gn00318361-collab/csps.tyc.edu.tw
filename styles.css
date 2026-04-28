@@ -540,9 +540,47 @@ main {
   width: 100%;
 }
 
+.notice-three-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  width: 100%;
+}
+
 .notice-two-grid .feature-card {
   padding: 34px 36px;
   min-height: 330px;
+}
+
+.notice-three-grid .feature-card {
+  min-height: 260px;
+}
+
+.exhibition-info-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.exhibition-info-grid .feature-card {
+  padding: 24px;
+  min-height: 150px;
+}
+
+.exhibition-info-grid .feature-card h3 {
+  margin-top: 0;
+}
+
+.exhibition-info-grid .feature-card p {
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.exhibition-preview-head {
+  margin-top: 34px;
+}
+
+.exhibition-preview-grid {
+  margin-top: 12px;
 }
 
 .feature-card,
