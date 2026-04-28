@@ -287,14 +287,53 @@
     }
 
     .site-footer {
-      padding: 0 0 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0 36px;
       color: var(--muted);
+      border-top: 1px solid rgba(239, 143, 87, 0.18);
+      margin-top: 4px;
+    }
+
+    .footer-title {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .footer-qr {
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+      color: var(--forest);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .footer-qr img {
+      width: 104px;
+      height: 104px;
+      padding: 8px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(239, 143, 87, 0.22);
+      box-shadow: 0 12px 24px rgba(55, 45, 32, 0.1);
     }
 
     @media (max-width: 920px) {
       .hero, .story-grid, .snapshot-layout { grid-template-columns: 1fr; }
       .hero-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hero-copy { padding: 32px 26px; }
+      .site-footer { flex-direction: column; align-items: flex-start; }
+      .footer-qr { justify-items: start; text-align: left; }
     }
 
     @media (max-width: 620px) {
@@ -310,11 +349,11 @@
     </div>
     <nav class="site-nav">
       <a class="active" href="index.html">首頁</a>
-      <a href="about.html">班級介紹</a>
       <a href="organization.html">組織圖</a>
-      <a href="curriculum.html">課程架構</a>
-      <a href="highlights.html">活動剪影</a>
       <a href="notices.html">公告資訊</a>
+      <a href="about.html">班級介紹</a>
+      <a href="curriculum.html">課程</a>
+      <a href="highlights.html">活動剪影</a>
       <a href="contact.html">聯絡我們</a>
     </nav>
   </header>
@@ -406,7 +445,14 @@
   </main>
 
   <footer class="site-footer">
-    青溪國小創造力資優班，以關懷、探索、想像與創新陪伴孩子學習。
+    <div>
+      <p class="footer-title">青溪國小資優班</p>
+      <p>用關懷、探索、想像與創新，陪伴孩子發展屬於自己的學習能量。</p>
+    </div>
+    <div class="footer-qr">
+      <img src="assets/fan-page-qr.png" alt="青溪國小資優班粉絲專頁 QR Code">
+      <p>掃描前往粉絲專頁</p>
+    </div>
   </footer>
   <script src="assets/random-images.js"></script>
 </body>
